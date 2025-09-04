@@ -57,7 +57,7 @@ services:
     image: uselagoon/mysql-8.0:latest
     restart: always
     labels:
-      lagoon.type: mariadb
+      lagoon.type: mariadb-single
       lagoon.image: uselagoon/mysql-8.0:latest
     ports:
       - "3306"
