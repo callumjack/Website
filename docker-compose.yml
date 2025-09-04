@@ -1,3 +1,16 @@
+x-lagoon-route: &default-url
+  http://${COMPOSE_PROJECT_NAME:-umami}.docker.amazee.io
+
+x-environment: &default-environment
+  UMAMI_VERSION: 2.15.1
+  HASH_SALT: replace-me-with-a-random-string
+  DB_DATABASE: lagoon
+  DB_USERNAME: lagoon
+  DB_PASSWORD: lagoon
+  DB_HOST: db
+  DB_PORT: 3306
+
+
 services:
   nginx:
     container_name: hugo
@@ -15,51 +28,40 @@ services:
       - amazeeio-network
       - default
     environment:
+      <<: *default-environment
+      LAGOON_ROUTE: http://hugo.docker.amazee.io
       LAGOON_LOCALDEV_HTTP_PORT: "1313"
+
   umami:
     container_name: umami
-    image: ghcr.io/umami-software/umami:postgresql-latest
+    build:
+      context: .
+      dockerfile: lagoon/umami.Dockerfile
+      args:
+        UMAMI_VERSION: mysql-v2.15.1
     ports:
-      - "3000:3000"
-    environment:
-      DATABASE_URL: postgresql://umami:umami@db:5432/umami
-      DATABASE_TYPE: postgresql
-      APP_SECRET: replace-me-with-a-random-string
-      LAGOON_LOCALDEV_HTTP_PORT: "3000"
-    labels:
-      lagoon.type: node
-      lagoon.service.usecomposeports: true
-    depends_on:
-      db:
-        condition: service_healthy
-    init: true
-    restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      - 3000
     networks:
       - amazeeio-network
       - default
-  db:
-    image: postgres:15-alpine
     environment:
-      POSTGRES_DB: umami
-      POSTGRES_USER: umami
-      POSTGRES_PASSWORD: umami
+      <<: *default-environment
+      LAGOON_ROUTE: http://umami.docker.amazee.io
+      LAGOON_LOCALDEV_HTTP_PORT: 3000
     labels:
-      lagoon.type: postgres-single
-    volumes:
-      - umami-db-data:/var/lib/postgresql/data
+      lagoon.type: node
+    depends_on:
+      - db
+
+  db:
+    image: uselagoon/mysql-8.0:latest
     restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-volumes:
-  umami-db-data:
+    labels:
+      lagoon.type: mariadb
+      lagoon.image: uselagoon/mysql-8.0:latest
+    ports:
+      - "3306"
+
 
 networks:
   amazeeio-network:
