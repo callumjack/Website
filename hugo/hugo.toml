@@ -2,6 +2,3 @@ baseURL = 'http://hugo.docker.amazee.io'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 
-[params.umami]
-  siteID = "282bf6a4-7349-43ce-99e5-28fea725768d"
-  scriptURL = "https://umami.hugo.main.172.19.0.240.nip.io/script.js"
