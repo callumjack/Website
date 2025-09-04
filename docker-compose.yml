@@ -15,7 +15,6 @@ services:
       - amazeeio-network
       - default
     environment:
-      <<: *default-environment
       LAGOON_ROUTE: http://hugo.docker.amazee.io
       LAGOON_LOCALDEV_HTTP_PORT: "1313"
 
