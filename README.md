@@ -11,7 +11,7 @@ Instructions to install it are located [here](https://docs.docker.com/compose/in
 Once installed, clone this repository to your computer using
 
 ```bash 
-git clone --recurse-submodules git@github.com:jackfuller/callumjack.git ~/callumjack
+git clone --recurse-submodules git@github.com:jackwrfuller/callumjack.git ~/callumjack
 ```
 
 Change directory into the project using
