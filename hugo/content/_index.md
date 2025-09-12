@@ -1,5 +1,5 @@
 ---
-description: A selection of my favourite personal work.
+description: A selection of my favourite personal works.
 #lastmod: 2023-07-05
 title: Callum Jack
 resources:
