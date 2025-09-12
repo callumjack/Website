@@ -1,4 +1,5 @@
 baseURL = 'http://hugo.docker.amazee.io'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Callum Jack'
+theme = 'gallery'
 
