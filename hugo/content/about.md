@@ -7,4 +7,6 @@ menu:
     weight: 90
 ---
 
-This is a demonstration site for the Hugo Gallery theme.
+Hi, my name is Callum and I love taking photos.
+
+My cousin Jack, is super cool.
