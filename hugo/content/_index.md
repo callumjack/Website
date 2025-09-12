@@ -3,7 +3,7 @@ description: A selection of my favourite personal works.
 #lastmod: 2023-07-05
 title: Callum Jack
 resources:
-  - src: martin-martz-wRuhOOaG-Z4-unsplash.jpg
+  - src: _ZFC0002.jpg
     params:
       cover: true # cover of the home page is used for OpenGraph cards, etc.
 menus:
