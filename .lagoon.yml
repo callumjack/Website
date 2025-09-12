@@ -1,1 +1,9 @@
 docker-compose-yaml: docker-compose.yml
+
+environments:
+  main:
+    routes:
+      - nginx:
+        - callumjack.au:
+            tls-acme: 'true'
+            insecure: Redirect
