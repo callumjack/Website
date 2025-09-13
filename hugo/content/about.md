@@ -8,5 +8,3 @@ menu:
 ---
 
 Hi, my name is Callum and I love taking photos.
-
-My cousin Jack, is super cool.
