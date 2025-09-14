@@ -1,5 +1,5 @@
 ---
-title: Imprint
+title: Master of none
 rss_ignore: true
 layout: prose
 menu:
