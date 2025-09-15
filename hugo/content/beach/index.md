@@ -5,7 +5,7 @@ title: The Beach
 categories: ["beach"]
 weight: 3
 params:
-  featured: false
+  featured: true
   featured_image: _ZFC0015.jpg
   theme: dark
   sort_order: desc
