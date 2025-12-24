@@ -5,12 +5,12 @@ title: Action sports
 categories: ["action sports"]
 weight: 3
 params:
-  featured_image: Fox V1.png
+  featured_image: Fox helmet.png
   theme: dark
   sort_order: desc
   sort_by: Name # Exif.Date
 resources:
-  - src: Fox V1.png
+  - src: Fox helmet.png
     params:
       cover: true
 ---
